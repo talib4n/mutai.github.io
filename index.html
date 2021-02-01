@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>wilfredmutai</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="assets/faviconTop.ico">
+
+
+    <!--FontAwesome kit-->
+    <script src="https://kit.fontawesome.com/9a0465217f.js" crossorigin="anonymous"></script>
+
+    
+
+    <!--scroll reveal-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- termynal stylesheet -->
+    <link rel="stylesheet" href="css/termynal.css">
+
+
+</head>
+<body>
+<button onclick="topFunction()" id="scroll-up" title="Go to top"><i class="fas fa-chevron-up"></i></button>
+<header>
+    <a href="index.html" class="logo"><p>wilfredmutai</p></a>
+</header>
+
+<main id="mainpage">
+<!--    terminal container-->
+    <section id="termynal">
+        <!-- termynal.js -->
+        <script src="js/termynal.js"></script>
+        <script>
+            var termynal = new Termynal('#termynal', {
+                typeDelay: 40,
+                lineDelay: 700,
+                lineData: [
+                    { type: 'input', prompt: '$', value: 'Hello World! I am Wilfred Mutai' },
+                    { value: 'Wanna know more about me?' },
+                    { type: 'input',  typeDelay: 1000, prompt: '(y/n)', value: 'y' },
+                    { type: 'progress',  progressChar: '#' },
+                    { type: 'input', prompt: '$', value: 'Ethical Hacker::Web Developer'},
+                    { type: 'input', prompt: '$', value: 'I design and develop creative and instinctive experiences.'},
+                    { type: 'input', prompt: '$', value: 'Services Rendered:' },
+                    { type: 'input', prompt: '$', value: 'Penetration Testing, Web Development, Tech Consultancy' },
+                ]
+            });
+        </script>
+    </section>
+   
+<!--Projects container-->
+    <div><p class="sectionheader">My Work.</p></div>
+    <!-- <section>
+        <div class="project-box">
+
+            <div class="project">
+                <h1 class="project-head">Kibandasky</h1>
+                <br>
+                <p class="project-desc">Kibandasky is a restaurant website that allows users to view the menu and book a table.</p>
+
+                <div class="row">
+                    <div class="project-data">
+                        <p>Service :</p>
+                        <h6>Web Development</h6>
+                    </div>
+
+                    <div class="project-data">
+                        <p>Duration :</p>
+                        <h6>6 Weeks</h6>
+                    </div>
+                </div>
+
+                <div class="project-img">
+                    <img src="assets/kibandasky.png" alt="Max Image" class="project-img-1">
+                    <img src="assets/kibandaskyMin.png" alt="Min Image" class="project-img-2">
+                </div>
+                <div class="read-more-div">
+                    <a class="read-more" href="#">More Info</a>
+                </div>
+                <br>
+                <hr>
+
+
+
+
+
+
+            </div>
+        </div>
+    </section> -->
+
+    <section>
+        <div class="project">
+            <h1 class="project-head">First Blood</h1>
+            <h4 class="date">2021-01-26</h4>
+            <p class="project-desc">#CTF #InfoSec</p>
+            <a href="#">Read More</a>
+            <hr>
+        </div>
+
+        <div class="project">
+            <h1 class="project-head">First Blood</h1>
+            <h4 class="date">2021-01-26</h4>
+            <p class="project-desc">#CTF #InfoSec</p>
+            <a href="#">Read More</a>
+            <hr>
+        </div>
+
+        <div class="project">
+            <h1 class="project-head">First Blood</h1>
+            <h4 class="date">2021-01-26</h4>
+            <p class="project-desc">#CTF #InfoSec</p>
+            <a href="#">Read More</a>
+            <hr>
+        </div>
+        
+    </section>
+
+    <!--    Contact form container-->
+    <div class="container">
+        <div class="contact-content">
+            <br><br>
+
+            <div class="row">
+                <div class="col-lg-8">
+
+                    <h3 class="sectionheader">Contact Me.</h3><br>
+                    <p class="contact-qs">Want to hire me? Have a question? Leave a comment below</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="contact-section">
+        <div class="contact_container bg-grid">
+            <form action="https://formspree.io/f/xdopapap" class="contact_form" method="post">
+                <input type="text" placeholder="Full Name" class="contact_input" name="FullName" id="FullName" required>
+                <input type="email" placeholder="Email" class="contact_input" name="email" id="Email" required>
+                <textarea placeholder="Type your message here..."name="Message" id="Message" cols="" rows="10" class="contact_input" required></textarea>
+
+                <input type="submit" value="Submit" class="contact_button button">
+            </form>
+        </div>
+    </section>
+
+</main>
+<footer class="footer">
+    <hr>
+    
+    <p class="footer_title">Connect with me.</p>
+
+    <div class="footer_social">
+        <a href="https://github.com/wilfredmutai/" class="footer_icon-git"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/wilfredmutai_/" class="footer_icon-tw"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com/wilfred.mutai/" class="footer_icon-ig"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div>
+        <a class="mailto" href="mailto:wilfr3dmutai@gmail.com">wilfr3dmutai@gmail.com</a>
+    </div>
+    <div class="copyright">
+        <p>© Copyright&nbsp;<script>document.write(new Date().getFullYear());</script> – Wilfred Mutai</p>
+    </div>
+</footer>
+
+
+
+<!-- Scroll back to top -->
+<script>
+    var mybutton = document.getElementById("scroll-up");
+
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox and Opera
+    }
+</script>
+
+<!-- Scroll reveal js -->
+<script>
+    ScrollReveal().reveal('.logo', {delay: 500 });
+    // skills
+    ScrollReveal().reveal('.sectionheader', {delay: 700 });
+    ScrollReveal().reveal('.skill-title', { delay: 1000 });
+    ScrollReveal().reveal('.skill-box p', { delay: 1500 });
+    // projects
+    ScrollReveal().reveal('.project-head', {delay: 500});
+    ScrollReveal().reveal('.project-desc', {delay: 800});
+    ScrollReveal().reveal('.project-data', {delay: 1200});
+    ScrollReveal().reveal('.project-img', {delay: 1800});
+    // contacts
+    ScrollReveal().reveal('.contact-qs', {delay: 2000});
+    ScrollReveal().reveal('.contact-section', {delay: 2400});
+</script>
+
+</body>
+</html>
