@@ -53,7 +53,7 @@
 }
 @media screen and (max-width: 600px){
     [data-termynal]{
-        height: 80vh;
+        height: 100vh;
     }
 }
 
