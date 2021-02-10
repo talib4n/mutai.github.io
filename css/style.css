@@ -193,6 +193,9 @@ body{
     .contact_input{
         width: 100%;
     }
+    .contact_button{
+        margin-bottom: 20px;
+    }
 }
 @media screen and (min-width: 1024px){
     .bg-grid{
