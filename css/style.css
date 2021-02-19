@@ -32,6 +32,9 @@ html{
 body{
     background: var(--third-color);
 }
+header{
+    height: 50px;
+}
 .logo{
     text-decoration: none;
     color: var(--primary-color);
