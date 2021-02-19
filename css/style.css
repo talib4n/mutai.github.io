@@ -33,7 +33,7 @@ body{
     background: var(--third-color);
 }
 header{
-    height: 50px;
+    height: 60px;
 }
 .logo{
     text-decoration: none;
