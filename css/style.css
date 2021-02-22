@@ -65,10 +65,12 @@ header{
     color: var(--primary-color);
 }
 .project h4{
+    color: var(--secondary-color);
     font-family: var(--courier-prime);
     font-size: 18px;
 }
 .project p{
+    color: var(--secondary-color);
     font-family: var(--courier-prime);
     font-size: 18px;
 }
