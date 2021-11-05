@@ -1,0 +1,14 @@
+(function($) {
+  const getHtml = function(nodeEntry) {
+    return nodeEntry.html;
+  };
+  Drupal.behaviors.rotary_rotaryorg_alerts = {
+    attach: function (context) {
+      $("#alert", context).prepend(
+        Drupal.settings.rotary_rotaryorg_alerts
+          .map(getHtml)
+          .join("")
+      );
+    }
+  };
+})(jQuery);

@@ -1,0 +1,18 @@
+Drupal.ad_tracking = Drupal.ad_tracking || {};
+
+Drupal.behaviors.ad_tracking = {
+  attach: function(context, settings) {
+    if (!settings.ad_tracking || Drupal.settings.ad_tracking.initDone) {
+      return;
+    }
+
+    for (i in settings.ad_tracking.enabledVendors) {
+      if (Drupal.ad_tracking[settings.ad_tracking.enabledVendors[i]]) {
+        Drupal.ad_tracking[settings.ad_tracking.enabledVendors[i]]();
+      }
+    }
+
+    // Prevent this behavior from operating again.
+    Drupal.settings.ad_tracking.initDone = true;
+  }
+}

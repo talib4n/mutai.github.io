@@ -1,0 +1,112 @@
+Drupal.behaviors.rotary_adobe_analytics = {
+  attach: function(context, settings) {
+    if (!Drupal.settings.rotary_adobe_analytics) {
+      return;
+    }
+    if (typeof rotaryDDO == "undefined") {
+      rotaryDDO = {};
+
+      if (Drupal.settings.rotary_adobe_analytics.DTM.DDO) {
+        rotaryDDO = Drupal.settings.rotary_adobe_analytics.DTM.DDO;
+      }
+    }
+
+    this.extraBehaviors.forEach(function(v, i, a) {
+      this.extraBehaviors[i].attach(context, settings);
+    }, this);
+
+    if (this.hasRun || !Drupal.settings.rotary_adobe_analytics) {
+      return;
+    }
+
+    // Delayed action which awaits a condition and then fires.
+    // condition: Function callback which returns true or false.
+    // action: Function callback which is called when the condition is
+    //   met.
+    // interval: Number of milliseconds to wait between attempts.
+    // attempts: Number of times to check for the condition before
+    //   giving up.
+    // shrug: Whether to take the action after attempts are exhausted,
+    //   even if the condition is not met.
+    var Await = function(condition, action, interval, attempts, shrug) {
+      this.attemptsMade = 0;
+      var thisAwait = this;
+      this.timeoutCallback = function() {
+        thisAwait.check();
+      }
+
+      this.condition = condition;
+      this.action = action;
+
+      if (typeof interval == "integer") {
+        this.interval = interval;
+      }
+      if (typeof attempts == "integer") {
+        this.maxAttempts = attempts;
+      }
+      if (typeof shrug == "boolean") {
+        this.shrug = shrug;
+      }
+
+      this.check();
+    }
+    Await.prototype = {
+      interval: 250,
+      maxAttempts: 4,
+      shrug: false,
+      check: function() {
+        if (this.condition()) {
+          this.action();
+        }
+        else if (++this.attemptsMade < this.maxAttempts) {
+          setTimeout(this.timeoutCallback, this.interval);
+        }
+        else if (this.shrug) {
+          this.action();
+        }
+      }
+    }
+
+    var DTMScript = document.createElement("script");
+    DTMScript.addEventListener(
+      "load",
+      {
+        handleEvent: function(event) {
+          new Await(
+            function() {
+              return performance.timing.loadEventEnd > 0;
+            },
+            function() {
+              // Populate rotaryDDO's timing information.
+              rotaryDDO.timeData = rotaryDDO.timeData || {};
+              if (performance.timing.loadEventEnd > 0) {
+                rotaryDDO.timeData.totalPageLoadTime
+                  = performance.timing.loadEventEnd
+                  - performance.timing.navigationStart;
+              }
+
+              _satellite.pageBottom();
+            },
+            25,
+            40,
+            true
+          );
+        }
+      }
+    );
+
+    DTMScript.async = true;
+
+    DTMScript.src = "//assets.adobedtm.com/"
+      + Drupal.settings.rotary_adobe_analytics.DTM.id
+      + "/"
+      + Drupal.settings.rotary_adobe_analytics.DTM.script;
+
+    // Include DTM.
+    document.getElementsByTagName("head")[0].appendChild(DTMScript);
+
+    this.hasRun = true;
+  },
+  extraBehaviors: [],
+  hasRun: false
+}

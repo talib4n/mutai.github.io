@@ -1,0 +1,92 @@
+/**
+ * @file
+ * Client-side handling of outdated browser alert.
+ *
+ * If a user is using an old browser to browse the site, he will be shown the
+ * outdated alert.
+ *
+ * Once the user dismisses this alert, a cookie is set with expiration date of
+ * after 30 days.
+ *
+ * Every time the site is loaded in the browser, this cookie is checked. If it
+ * is there, the alert is not displayed, otherwise it is.
+ */
+(function ($) {
+  // Function to add alert html to DOM.
+  function displayAlert(AlertHeader, AlertMsg) {
+    $('#outdated-browser-alert h3').html(AlertHeader);
+    $('#outdated-browser-alert p').html(AlertMsg);
+    $('.outdated-browser-alert-wrapper').slideDown(300);
+  }
+
+  Drupal.behaviors.rotaryBrowserAlert = Drupal.behaviors.rotaryBrowserAlert || {};
+  Drupal.rotaryBrowserAlert = Drupal.rotaryBrowserAlert || {};
+  Drupal.behaviors.rotaryBrowserAlert.attach = function(context) {
+    // Check for cookie.
+    if (document.cookie.indexOf("oldBrowserAlertDismissed") == -1) {
+      $('#outdated-browser-alert', context).once('outdated-browser-alerts-processed', function() {
+        // Get the alert HTML & the actual message.
+        var AlertHeader = Drupal.settings.rotaryBrowserAlert.rbaOutdatedHeader;
+        var AlertMsg = Drupal.settings.rotaryBrowserAlert.rbaOutdatedMessage;
+        IEDetails = Drupal.rotaryBrowserAlert.IeVersion();
+        // Detect the browser and its version.
+        var browser = Drupal.rotaryBrowserAlert.getBrowser();
+
+        // For various browsers, check the version and display alert
+        // accordingly.
+        if (browser.name == 'MSIE') {
+          IEDetails = Drupal.rotaryBrowserAlert.IeVersion();
+          // Check for IE compatibility mode.
+          if (IEDetails.CompatibilityMode) {
+            AlertHeader = Drupal.settings.rotaryBrowserAlert.rbaCompatibilityHeader;
+            AlertMsg = Drupal.settings.rotaryBrowserAlert.rbaCompatibilityMessage;
+            displayAlert(AlertHeader, AlertMsg);
+          }
+          else if (browser.version < parseInt(Drupal.settings.rotaryBrowserAlert.rbaIE, 10)) {
+            displayAlert(AlertHeader, AlertMsg);
+          }
+        }
+        if (browser.name == 'Edge') {
+          if (browser.version < parseInt(Drupal.settings.rotaryBrowserAlert.rbaEdge, 10)) {
+            displayAlert(AlertHeader, AlertMsg);
+          }
+        }
+        if (browser.name == 'Firefox') {
+          if (browser.version < parseInt(Drupal.settings.rotaryBrowserAlert.rbaFirefox, 10)) {
+            displayAlert(AlertHeader, AlertMsg);
+          }
+        }
+        if (browser.name == 'Chrome') {
+          if (browser.version < parseInt(Drupal.settings.rotaryBrowserAlert.rbaChrome, 10)) {
+            displayAlert(AlertHeader, AlertMsg);
+          }
+        }
+        if (browser.name == 'SafariMac') {
+          if (browser.version < parseInt(Drupal.settings.rotaryBrowserAlert.rbaSafariMac, 10)) {
+            displayAlert(AlertHeader, AlertMsg);
+          }
+        }
+        if (browser.name == 'Opera') {
+          if (browser.version < parseInt(Drupal.settings.rotaryBrowserAlert.rbaOpera, 10)) {
+            displayAlert(AlertHeader, AlertMsg);
+          }
+        }
+        if (browser.name == 'SafariIOS') {
+          if (browser.version < parseInt(Drupal.settings.rotaryBrowserAlert.rbaSafariIOS, 10)) {
+            displayAlert(AlertHeader, AlertMsg);
+          }
+        }
+      });
+
+      // Set cookie if user dismisses the alert.
+      $('#outdated-browser-alert .alert-dismiss-link').on("click", function(){
+        var now = new Date();
+        now.setTime(now.getTime() + (parseInt(Drupal.settings.rotaryBrowserAlert.rbaReAppearence, 10) * 1000));
+        document.cookie = "oldBrowserAlertDismissed = TRUE; expires=" + now.toUTCString() + "; path=/";
+
+        // Hides the alert.
+        $('.outdated-browser-alert-wrapper').slideUp(300);
+      });
+    }
+  }
+})(jQuery);
