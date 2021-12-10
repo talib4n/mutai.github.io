@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>wilfredmutai</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="assets/faviconTop.ico">
+
+
+    <!--FontAwesome kit-->
+    <script src="https://kit.fontawesome.com/9a0465217f.js" crossorigin="anonymous"></script>
+
+    <!--scroll reveal-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- termynal stylesheet -->
+    <link rel="stylesheet" href="css/termynal.css">
+
+
+</head>
+<body>
+<button onclick="topFunction()" id="scroll-up" title="Go to top"><i class="fas fa-chevron-up"></i></button>
+<header>
+    <a href="index.html" class="logo">wilfredmutai</a>
+</header>
+
+<main id="mainpage">
+<!--    terminal container-->
+    <section id="termynal">
+        <!-- termynal.js -->
+        <script src="js/termynal.js"></script>
+        <script>
+            var termynal = new Termynal('#termynal', {
+                typeDelay: 40,
+                lineDelay: 700,
+                lineData: [
+                    { type: 'input', prompt: '$', value: 'Hello World! I am Wilfred Mutai' },
+                    { value: 'Wanna know more about me?' },
+                    { type: 'input',  typeDelay: 1000, prompt: '(y/n)', value: 'y' },
+                    { type: 'progress',  progressChar: '#' },
+                    { type: 'input', prompt: '$', value: 'Ethical Hacker::Web Developer'},
+                    { type: 'input', prompt: '$', value: 'I design and develop creative and instinctive experiences.'},
+                    { type: 'input', prompt: '$', value: 'Services Rendered:' },
+                    { type: 'input', prompt: '$', value: 'Penetration Testing, Web Development, Tech Consultancy' },
+                ]
+            });
+        </script>
+    </section>
+   
+<!--Projects container-->
+    <div><p class="sectionheader">My Work.</p></div>
+
+    <section>
+        <div class="project">
+            <a href="project-1.html" class="project-header">Kibandasky</a>
+            <h4>Sep 10, 2020</h4>
+            <p>Restaurant website</p>
+            <a href="project-1.html" class="more">Read More <i class="fas fa-arrow-right"></i></a>
+            <hr>
+        </div>
+
+        <div class="project">
+            <a href="#" class="project-header">KeyLogger</a>
+            <h4>2021-01-26</h4>
+            <p>#infoSec #python</p>
+            <a href="#" class="more">Read More <i class="fas fa-arrow-right"></i></a>
+            <hr>
+        </div>
+
+        <div class="project">
+            <a href="#" class="project-header">Hash Cracker</a>
+            <h4>2021-01-26</h4>
+            <p>#InfoSec #python</p>
+            <a href="#" class="more">Read More <i class="fas fa-arrow-right"></i></a>
+            <hr>
+        </div>
+        
+        <div class="project">
+            <a href="#" class="project-header">Area 51</a>
+            <h4>2021-01-26</h4>
+            <p>Gamers' Arena website</p>
+            <a href="#" class="more">Read More <i class="fas fa-arrow-right"></i></a>
+            <hr>
+        </div>
+
+        <div class="project">
+            <a href="#" class="project-header">Escobar</a>
+            <h4>Coming Soon</h4>
+            <p>#django</p>
+            <a href="#" class="more">Read More <i class="fas fa-arrow-right"></i></a>
+            <hr>
+        </div>
+
+        <div class="project">
+            <a href="#" class="project-header">SecuResearch</a>
+            <h4>Coming Soon</h4>
+            <p>InfoSec research blog</p>
+            <a href="#" class="more">Read More <i class="fas fa-arrow-right"></i></a>
+            <hr>
+        </div>
+        
+    </section>
+
+    <!--    Contact form container-->
+    <div class="container">
+        <div class="contact-content">
+            <br><br>
+
+            <div class="row">
+                <div class="col-lg-8">
+
+                    <h3 class="sectionheader">Contact Me.</h3><br>
+                    <p class="contact-qs">Want to hire me? Have a question? Leave a comment below</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="contact-section">
+        <div class="contact_container bg-grid">
+            <form action="https://formspree.io/f/xdopapap" class="contact_form" method="post">
+                <input type="text" placeholder="Full Name" class="contact_input" name="FullName" id="FullName" required>
+                <input type="email" placeholder="Email" class="contact_input" name="email" id="Email" required>
+                <textarea placeholder="Type your message here..."name="Message" id="Message" cols="" rows="10" class="contact_input" required></textarea>
+
+                <input type="submit" value="Submit" class="contact_button button">
+            </form>
+        </div>
+    </section>
+
+</main>
+<footer class="footer">
+    <hr>
+    
+    <p class="footer_title">Connect with me.</p>
+
+    <div class="footer_social">
+        <a href="https://github.com/wilfredmutai/" class="footer_icon-git"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/wilfr3dmutai/" class="footer_icon-tw"><i class="fab fa-twitter"></i></a>
+        <a href="https://dev.to/wilfredmutai" class="footer_icon-dev"><i class="fab fa-dev"></i></a>
+    </div>
+    <div>
+        <a class="mailto" href="mailto:wilfredmutaii@protonmail.com">wilfredmutaii@protonmail.com</a>
+    </div>
+    <div class="copyright">
+        <p>© Copyright&nbsp;<script>document.write(new Date().getFullYear());</script> – Wilfred Mutai</p>
+    </div>
+</footer>
+
+
+
+<!-- Scroll back to top -->
+<script>
+    var mybutton = document.getElementById("scroll-up");
+
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox and Opera
+    }
+</script>
+
+<!-- Scroll reveal js -->
+<script>
+    ScrollReveal().reveal('.logo', {delay: 500 });
+    // work
+    ScrollReveal().reveal('.project-header', {delay: 700});
+    ScrollReveal().reveal('.project h4', {delay: 1000});
+    ScrollReveal().reveal('.project p', {delay: 1300});
+    ScrollReveal().reveal('.more', {delay: 1600});
+    ScrollReveal().reveal('.project hr', {delay: 1900});
+    // contacts
+    ScrollReveal().reveal('.contact-qs', {delay: 2100});
+    ScrollReveal().reveal('.contact-section', {delay: 2400});
+</script>
+
+</body>
+</html>
