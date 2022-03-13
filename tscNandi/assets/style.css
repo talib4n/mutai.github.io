@@ -2343,7 +2343,7 @@ body{
 
   @media screen and (max-width: 768px){
       .home-features iframe{
-          width: 450px;
+          width: 425px;
           height: 250px;
       }
   }
